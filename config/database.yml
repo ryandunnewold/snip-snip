@@ -1,0 +1,27 @@
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+
+postgres: &postgres
+  adapter: postgresql
+  encoding: utf8
+  database: 
+  host: 
+  username: 
+  password: 
+
+staging:
+  <<: *postgres
+  pool: 25
+
+production:
+  <<: *postgres
+  pool: 25
