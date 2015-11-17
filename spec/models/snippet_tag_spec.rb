@@ -1,0 +1,2 @@
+describe SnippetTag do
+end

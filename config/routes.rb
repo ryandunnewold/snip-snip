@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :snippets
+
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
   mount Avocado::Engine => '/api-docs', constraints: -> (_) { Rails.env.staging? }
@@ -9,6 +11,6 @@ Rails.application.routes.draw do
     devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }
   end
 
-  root to: 'users#profile'
+  root to: 'snippets#index'
 
 end

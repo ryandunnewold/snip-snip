@@ -51,7 +51,6 @@ gem 'elbas'
 
 gem 'avocado-docs', '~> 3.0.0'
 gem 'aws-healthcheck'
-gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'connection_pool'
 gem 'faker'

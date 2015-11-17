@@ -1,0 +1,2 @@
+describe Snippet do
+end
