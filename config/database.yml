@@ -1,27 +1,20 @@
-test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
-
 development:
   adapter: sqlite3
   database: db/development.sqlite3
   pool: 5
   timeout: 5000
 
-postgres: &postgres
-  adapter: postgresql
-  encoding: utf8
-  database: 
-  host: 
-  username: 
-  password: 
-
-staging:
-  <<: *postgres
-  pool: 25
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
 
 production:
-  <<: *postgres
-  pool: 25
+  adapter: postgresql
+  encoding: utf8
+  database: dc5ulmpnbc5qa3
+  pool: 5
+  username: rwxpmkdlpywtgf
+  password: kr9VW89CwJ1Wsbl_h-nrV_mdsK
+  host: ec2-54-83-55-214.compute-1.amazonaws.com
