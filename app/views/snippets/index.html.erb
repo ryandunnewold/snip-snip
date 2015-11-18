@@ -1,3 +1,16 @@
-<% @snippets.each do |snippet| %>
-  <%= link_to snippet.title, snippet_path(snippet) %>
-<% end %>
+<div id="snippets-wrapper">
+  <div id="snippets-container" class="container">
+    <% @snippets.each do |snippet| %>
+      <div class='snippet'>
+        <div class='snippet-title'>
+          <%= link_to snippet.title, edit_snippet_path(snippet) %>
+        </div>
+        <div class='snippet-content'>
+          <code>
+            <%= snippet.content %>
+          </code>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

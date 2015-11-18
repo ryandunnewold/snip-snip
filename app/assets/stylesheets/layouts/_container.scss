@@ -1,1 +1,70 @@
-// Define your layouts container styles here
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: $primary-font;
+  font-size: 16px;
+}
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 400px;
+  .container {
+    height: 100%;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: $massive-breakpoint) {
+  #wrapper {
+    .container {
+      max-width: calc(.8 * #{$massive-breakpoint});
+    }
+  }
+}
+
+@media screen and (min-width: $extra-large-breakpoint) and (max-width: $massive-breakpoint - 1) {
+  #wrapper {
+    .container {
+      max-width: calc(.9 * #{$extra-large-breakpoint});
+    }
+  }
+}
+
+@media screen and (min-width: $large-breakpoint) and (max-width: $extra-large-breakpoint - 1) {
+  #wrapper {
+    .container {
+      max-width: calc(.95 * #{$large-breakpoint});
+    }
+  }
+}
+
+@media screen and (min-width: $medium-breakpoint) and (max-width: $large-breakpoint - 1) {
+  #wrapper {
+    .container {
+      max-width: $medium-breakpoint;
+    }
+  }
+}
+
+@media screen and (min-width: $small-breakpoint) and (max-width: $medium-breakpoint - 1) {
+  #wrapper {
+    .container {
+      max-width: $small-breakpoint;
+    }
+  }
+}
+
+@media screen and (min-width: $extra-small-breakpoint) and (max-width: $small-breakpoint - 1) {
+  #wrapper {
+    .container {
+      max-width: calc(.95 * #{$extra-small-breakpoint});
+    }
+  }
+}

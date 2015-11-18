@@ -1,0 +1,13 @@
+nav {
+  height: $nav-height;
+  @include flex-center;
+  .nav-item {
+    color: $very-dark-gray;
+    text-decoration: none;
+    box-sizing: border-box;
+    padding: 16px;
+    &:hover {
+      color: darken($very-dark-gray, 10%);
+    }
+  }
+}

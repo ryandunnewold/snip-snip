@@ -8,17 +8,32 @@ class SnippetsController < ApplicationController
   end
 
   def new
+    @snippet = Snippet.new
   end
 
   def create
+    @snippet = Snippet.create(snippet_params)
+    respond_with @snippet
   end
 
   def edit
+    @snippet = Snippet.find(params[:id])
   end
 
   def update
+    @snippet = Snippet.find(params[:id])
+    @snippet.update(snippet_params)
   end
 
   def destroy
+    @snippet = Snippet.find(params[:id])
+    @snippet.destroy
   end
+
+  private
+
+    def snippet_params
+      params.require(:snippet).permit :title, :content
+    end
+
 end

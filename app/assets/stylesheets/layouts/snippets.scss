@@ -1,8 +1,24 @@
-code {
-  display: block;
-  box-sizing: border-box;
-  padding: 16px;
-  font-family: "Source Code Pro";
-  background: $dark-blue;
-  color: #fff;
+#snippets-wrapper {
+  #snippets-container {
+    .snippet {
+      box-sizing: border-box;
+      padding: 16px;
+      .snippet-title {
+        a {
+          color: $very-dark-gray;
+          text-decoration: none;
+        }
+      }
+      .snippet-content {
+        code {
+          display: block;
+          box-sizing: border-box;
+          padding: 16px;
+          font-family: "Source Code Pro";
+          background: $dark-blue;
+          color: #fff;
+        }
+      }
+    }
+  }
 }

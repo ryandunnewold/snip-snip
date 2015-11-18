@@ -7,9 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <%= render 'shared/flash', flash: flash if flash %>
-
-<%= yield %>
-
+  <%= render 'shared/nav' %>
+  <div id='wrapper'>
+    <%= yield %>
+  </div>
 </body>
 </html>
