@@ -28,7 +28,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'metova-logger'
   gem 'pg'
   gem 'puma'
 end
