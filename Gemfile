@@ -27,9 +27,10 @@ group :development, :test do
   gem 'timecop'
 end
 
-group :staging, :production do
-  gem 'pg'
+group :production do
   gem 'metova-logger'
+  gem 'pg'
+  gem 'puma'
 end
 
 group :production do
