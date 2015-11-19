@@ -1,24 +1,42 @@
-#snippets-wrapper {
-  #snippets-container {
-    .snippet {
+.snippet {
+  box-sizing: border-box;
+  padding: 8px 16px;
+  .snippet-title {
+    box-sizing: border-box;
+    padding: 8px;
+    a {
+      color: $gray;
+      text-decoration: none;
+    }
+  }
+  .snippet-content {
+    code {
+      display: block;
       box-sizing: border-box;
       padding: 16px;
-      .snippet-title {
-        a {
-          color: $very-dark-gray;
-          text-decoration: none;
-        }
-      }
-      .snippet-content {
-        code {
-          display: block;
-          box-sizing: border-box;
-          padding: 16px;
-          font-family: "Source Code Pro";
-          background: $dark-blue;
-          color: #fff;
-        }
-      }
+      font-family: Courier New;
+      background: $dark-blue;
+      color: #fff;
     }
+  }
+}
+
+form {
+  input[type='text'], textarea {
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    border: 1px solid $gray;
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+  textarea {
+    resize: none; 
+    font-family: 'Source Code Pro';
+    min-height: 300px;
+  }
+  input[type='submit'] {
+    @include button($primary-color);
+    width: 100%;
   }
 }

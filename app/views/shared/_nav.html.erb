@@ -1,4 +1,7 @@
 <nav>
-  <%= link_to 'Snippets', snippets_path, class: 'nav-item' %>
-  <%= link_to 'New Snippet', new_snippet_path, class: 'nav-item' %>
+  <%= link_to 'Snips', snippets_path, class: 'nav-item' %>
+  <%= link_to root_path do %>
+    <%= image_tag 'icon.png', class: 'nav-logo' %>
+  <% end %>
+  <%= link_to 'New Snip', new_snippet_path, class: 'nav-item' %>
 </nav>

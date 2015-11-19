@@ -1,13 +1,18 @@
 nav {
   height: $nav-height;
   @include flex-center;
+  .nav-logo {
+    width: 50px;
+    height: 50px;
+  }
   .nav-item {
-    color: $very-dark-gray;
+    color: $gray;
     text-decoration: none;
     box-sizing: border-box;
-    padding: 16px;
+    padding: 8px 16px;
     &:hover {
-      color: darken($very-dark-gray, 10%);
+      color: darken($gray, 10%);
+      text-decoration: underline;
     }
   }
 }
