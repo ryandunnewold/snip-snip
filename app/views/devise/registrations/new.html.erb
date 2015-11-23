@@ -1,6 +1,5 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render 'shared/flash', flash: flash if flash %>
-  <%= f.error_notification message: nil %>
 
   <div class="form-inputs">
     <%= f.input :email, required: true, label: false, autofocus: true, placeholder: 'Email' %>

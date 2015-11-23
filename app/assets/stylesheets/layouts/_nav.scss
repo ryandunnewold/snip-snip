@@ -1,6 +1,10 @@
 nav {
   height: $nav-height;
   @include flex-center;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  background: #fff;
   #nav-left {
     @include flex;
     @include flex-justify(flex-end);
@@ -18,12 +22,12 @@ nav {
     flex: 1;
   }
   .nav-item {
-    color: $gray;
+    color: $primary-color;
     text-decoration: none;
     box-sizing: border-box;
     padding: 8px 16px;
     &:hover {
-      color: darken($gray, 10%);
+      color: darken($primary-color, 10%);
       text-decoration: underline;
     }
   }

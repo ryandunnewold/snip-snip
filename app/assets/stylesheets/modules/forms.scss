@@ -1,3 +1,7 @@
 // Define your app's form styles here
 
-
+form {
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+  }
+}

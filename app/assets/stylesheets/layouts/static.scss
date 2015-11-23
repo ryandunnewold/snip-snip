@@ -3,7 +3,7 @@
   margin: 0 auto;
   text-align: center;
   #landing-logo {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
   }
   #landing-title {
@@ -42,6 +42,7 @@
         box-sizing: border-box;
         padding: 16px;
         font-size: 16px;
+        border-radius: 4px;
         outline: none;
         &:focus {
           border-color: $primary-color;
@@ -78,6 +79,17 @@
         &:hover {
           background: darken($primary-color, 8%);
         }
+      }
+    }
+  }
+  #link-wrapper {
+    text-align: center;
+    #link-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      a {
+        color: #222;
       }
     }
   }

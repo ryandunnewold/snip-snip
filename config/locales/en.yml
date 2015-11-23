@@ -20,4 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      messages:
+        blank: "%{attribute} cannot be blank"
+        required: "%{attribute} must exist"
+        taken: "%{attribute} has already been taken"
