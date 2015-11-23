@@ -20,4 +20,65 @@
       @include button($yellow);
     }
   }
+  form {
+    .form-inputs {
+      .form-group {
+        .error-message {
+          color: red;
+          font-size: .8rem;
+          padding: 8px;
+          box-sizing: border-box;
+          display: block;
+          &+ input[type='email'], &+ input[type='password'] {
+          }
+        }
+      }
+      input[type='email'], input[type='password'] {
+        margin: 0 auto 8px;
+        width: 100%;
+        max-width: 400px;
+        display: block;
+        border: 1px solid $gray;
+        box-sizing: border-box;
+        padding: 16px;
+        font-size: 16px;
+        outline: none;
+        &:focus {
+          border-color: $primary-color;
+        }
+      }
+      input[type='email'] {
+
+      }
+      input[type='password'] {
+
+      }
+      .user_remember_me {
+        @include flex;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+    .form-actions {
+      input[type='submit'] {
+        margin: 0 auto 8px;
+        width: 100%;
+        max-width: 400px;
+        display: block;
+        border: none;
+        box-sizing: border-box;
+        padding: 16px 24px;
+        font-size: 16px;
+        outline: none;
+        background: $primary-color;
+        color: #fff;
+        cursor: pointer;
+        transition: background 50ms ease-out;
+        &:hover {
+          background: darken($primary-color, 8%);
+        }
+      }
+    }
+  }
 }

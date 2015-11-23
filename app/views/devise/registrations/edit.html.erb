@@ -1,26 +1,105 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div id="profile-wrapper" class="wrapper">
+  <section id="profile-container" class="container">
+    <header>
+      <h1>My Profile</h1>
+      <h4>Tell us a little bit about yourself.</h4>
+    </header>
+    <main>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email, required: true %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :gender, label: "What's your gender?", as: :radio_buttons, collection: [['<span class="icon ion-man"></span>'.html_safe, 'male'], ['<span class="icon ion-woman"></span>'.html_safe, 'female']], wrapper: :button_collection %>
+          <%= f.input :zip, as: :string %>
+          <%= f.input :accountability, label: "Do you want to be an accountability partner for other users?", as: :radio_buttons, collection: [['<span class="icon ion-ios-checkmark-empty"></span>'.html_safe, true], ['<span class="icon ion-ios-close-empty"></span>'.html_safe, false]], wrapper: :button_collection %>
+          <%= f.input :profile %>
+        </div>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-  </div>
+        <div class="form-actions">
+          <%= link_to 'Cancel', :back, id: 'cancel-button' %>
+          <%= f.button :submit, "Update" %>
+        </div>
+      <% end %>
+    </main>
+  </section>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+<% if @completed_challenges.any? %>
+  <div id='challenges-wrapper' class="wrapper">
+    <section id='challenges-container' class='container'>
+      <header>
+        <h1>Completed Challenges</h1>
+      </header>
+      <main>
+        <% @completed_challenges.each do |challenge| %>
+          <div class="challenge<%= ' completed' if challenge.user_progress(current_user) == 100 %>">
+            <div class='challenge-icon-wrapper'>
+              <%= link_to challenge_path(challenge) do %>
+                <%= image_tag challenge.icon.url %>
+              <% end %>
+            </div>
+            <div class='challenge-overview'>
+              <%= link_to challenge.title, challenge_path(challenge) %>
+              <div class='challenge-progress-wrapper'>
+                <span class='progress-label'>Progress </span><progress value="<%= challenge.user_progress(current_user) %>" max="100"></progress>
+              </div>
+            </div>
+            <div class='challenge-actions'>
+              <% if challenge.user_progress(current_user) == 100 %>
+                <%= link_to 'Revisit Challenge', challenge_path(challenge), class: 'action challenge-button' %>
+              <% else %>
+                <%= link_to 'Go to Challenge', challenge_path(challenge), class: 'action challenge-button' %>
+              <% end %>
+              <%= link_to 'Discuss', challenge_comments_path(challenge), class: 'action conversation-button' %>
+              <%= link_to 'Print', print_challenge_path(challenge), class: 'action print-button' %>
+            </div>
+          </div>
+        <% end %>
+      </main>
+    </section>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<% if @pending_challenges.any? %>
+  <div id='challenges-wrapper' class="wrapper">
+    <section id='challenges-container' class='container'>
+      <header>
+        <h1>Pending Challenges</h1>
+      </header>
+      <main>
+        <% @pending_challenges.each do |challenge| %>
+          <div class="challenge<%= ' completed' if challenge.user_progress(current_user) == 100 %>">
+            <div class='challenge-icon-wrapper'>
+              <%= link_to challenge_path(challenge) do %>
+                <%= image_tag challenge.icon.url %>
+              <% end %>
+            </div>
+            <div class='challenge-overview'>
+              <%= link_to challenge.title, challenge_path(challenge) %>
+              <div class='challenge-progress-wrapper'>
+                <span class='progress-label'>Progress </span><progress value="<%= challenge.user_progress(current_user) %>" max="100"></progress>
+              </div>
+            </div>
+            <div class='challenge-actions'>
+              <% if challenge.user_progress(current_user) == 100 %>
+                <%= link_to 'Revisit Challenge', challenge_path(challenge), class: 'action challenge-button' %>
+              <% else %>
+                <%= link_to 'Go to Challenge', challenge_path(challenge), class: 'action challenge-button' %>
+              <% end %>
+              <%= link_to 'Discuss', challenge_comments_path(challenge), class: 'action conversation-button' %>
+              <%= link_to 'Print', print_challenge_path(challenge), class: 'action print-button' %>
+            </div>
+          </div>
+        <% end %>
+      </main>
+    </section>
+  </div>
+<% end %>
