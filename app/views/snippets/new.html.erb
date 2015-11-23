@@ -1,6 +1,6 @@
 <%= simple_form_for @snippet do |f| %>
   <%= f.input :title, label: false, placeholder: 'Title' %>
   <%= f.input :content, label: false, placeholder: 'Content' %>
-  <%= f.input :private %>
+  <%= f.input :public %>
   <%= f.submit 'Save' %>
 <% end %>

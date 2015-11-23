@@ -1,0 +1,9 @@
+<div id='landing-container'>
+  <%= image_tag 'icon.png', id: 'landing-logo' %>
+  <h1 id='landing-title'>Snip, Snip</h1>
+  <p id='landing-subtitle'>A simple snippet storage site</p>
+  <div id='landing-actions'>
+    <%= link_to 'Explore', discover_path, id: 'landing-discover-button' %>
+    <%= link_to 'Start Snipping', snippets_path, id: 'landing-sign-up-button' %>
+  </div>
+</div>

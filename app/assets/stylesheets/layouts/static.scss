@@ -1,0 +1,23 @@
+#landing-container {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  #landing-logo {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #landing-title {
+
+  }
+  #landing-subtitle {
+
+  }
+  #landing-actions {
+    #landing-discover-button {
+      @include button($primary-color);
+    }
+    #landing-sign-up-button {
+      @include button($yellow);
+    }
+  }
+}

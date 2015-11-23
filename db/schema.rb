@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123181138) do
+ActiveRecord::Schema.define(version: 20151123194300) do
+
+  create_table "copies", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "snippet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "copies", ["snippet_id"], name: "index_copies_on_snippet_id"
+  add_index "copies", ["user_id"], name: "index_copies_on_user_id"
 
   create_table "snippet_tags", force: :cascade do |t|
     t.integer  "snippet_id"
@@ -27,9 +37,9 @@ ActiveRecord::Schema.define(version: 20151123181138) do
     t.integer  "user_id"
     t.text     "content"
     t.string   "title"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.boolean  "private",    default: true
+    t.boolean  "public",     default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "snippets", ["user_id"], name: "index_snippets_on_user_id"

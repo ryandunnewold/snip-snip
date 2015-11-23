@@ -1,5 +1,5 @@
 class DiscoverController < ApplicationController
   def index
-    @snippets = Snippet.where.not(private: true)
+    @snippets = Snippet.where(public: true)
   end
 end

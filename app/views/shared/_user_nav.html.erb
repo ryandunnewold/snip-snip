@@ -1,11 +1,13 @@
 <nav>
   <div id='nav-left'>
     <%= link_to 'Discover', discover_path, class: 'nav-item' %>
+    <%= link_to 'My Snips', snippets_path, class: 'nav-item' %>
   </div>
   <%= link_to root_path do %>
     <%= image_tag 'icon.png', class: 'nav-logo' %>
   <% end %>
   <div id='nav-right'>
     <%= link_to 'New Snip', new_snippet_path, class: 'nav-item' %>
+    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-item' %>
   </div>
 </nav>

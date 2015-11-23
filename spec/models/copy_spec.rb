@@ -1,0 +1,2 @@
+describe Copy do
+end

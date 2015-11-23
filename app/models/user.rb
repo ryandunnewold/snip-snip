@@ -8,5 +8,6 @@
 
   validates :device_platform, inclusion: { in: %w(android ios) }, allow_nil: true
 
+  has_many :copies
   has_many :snippets
 end

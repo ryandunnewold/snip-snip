@@ -8,16 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if current_user %>
-    <%= render 'shared/user_nav' %>
-  <% else %>
-    <%= render 'shared/nav' %>
-  <% end %>
-  <div id='wrapper'>
+  <div id='wrapper' class='static'>
     <div id='container' class='container'>
       <%= yield %>
     </div>
   </div>
-  <%= yield :scripts %>
 </body>
 </html>

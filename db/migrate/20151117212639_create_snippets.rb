@@ -4,6 +4,7 @@ class CreateSnippets < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.text :content
       t.string :title
+      t.boolean :public, default: false
 
       t.timestamps null: false
     end
