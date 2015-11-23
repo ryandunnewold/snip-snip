@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :snippets
 
+  get '/discover', to: 'discover#index', as: 'discover'
+
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
   mount Avocado::Engine => '/api-docs', constraints: -> (_) { Rails.env.staging? }

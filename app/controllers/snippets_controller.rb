@@ -1,40 +1,42 @@
 class SnippetsController < ApplicationController
+  authenticated!
+
   def index
-    @snippets = Snippet.all
+    @snippets = current_user.snippets
   end
 
   def show
-    @snippet = Snippet.find(params[:id])
+    @snippet = current_user.snippets.find(params[:id])
   end
 
   def new
-    @snippet = Snippet.new
+    @snippet = current_user.snippets.new
   end
 
   def create
-    @snippet = Snippet.create(snippet_params)
+    @snippet = current_user.snippets.create(snippet_params)
     respond_with @snippet
   end
 
   def edit
-    @snippet = Snippet.find(params[:id])
+    @snippet = current_user.snippets.find(params[:id])
   end
 
   def update
-    @snippet = Snippet.find(params[:id])
+    @snippet = current_user.snippets.find(params[:id])
     @snippet.update(snippet_params)
     respond_with @snippet
   end
 
   def destroy
-    @snippet = Snippet.find(params[:id])
+    @snippet = current_user.snippets.find(params[:id])
     @snippet.destroy
   end
 
   private
 
     def snippet_params
-      params.require(:snippet).permit :title, :content
+      params.require(:snippet).permit :title, :content, :private
     end
 
 end

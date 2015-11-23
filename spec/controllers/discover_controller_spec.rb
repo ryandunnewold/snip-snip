@@ -1,0 +1,3 @@
+describe DiscoverController do
+
+end

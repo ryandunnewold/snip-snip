@@ -1,9 +1,21 @@
 nav {
   height: $nav-height;
   @include flex-center;
+  #nav-left {
+    @include flex;
+    @include flex-justify(flex-end);
+    @include flex-align(center);
+    flex: 1;
+  }
   .nav-logo {
     width: 50px;
     height: 50px;
+  }
+  #nav-right {
+    @include flex;
+    @include flex-justify(flex-start);
+    @include flex-align(center);
+    flex: 1;
   }
   .nav-item {
     color: $gray;
