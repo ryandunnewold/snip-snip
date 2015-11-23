@@ -60,7 +60,7 @@ gem 'faker'
 gem 'figaro'
 gem 'responders'
 gem 'simple_form'
-gem 'spring', group: :development
+gem 'spring'
 gem 'unicorn'
 gem 'yajl-ruby', require: 'yajl'
 gem 'yarjuf'
