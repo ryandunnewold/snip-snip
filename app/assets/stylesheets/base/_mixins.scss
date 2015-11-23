@@ -94,12 +94,13 @@
   border: none;
   outline: none;
   cursor: pointer;
+  border-radius: 4px;
   -webkit-appearance: none;
   @include transition(background 50ms ease-in-out);
   &:hover {
     background: darken($bg-color, 8%)
   }
-  span:before {
+  &:before {
     padding-right: 8px;
   }
 }

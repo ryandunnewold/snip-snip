@@ -14,3 +14,16 @@
     <% end %>
   </div>
 </div>
+
+<% content_for :scripts do %>
+  <script type='text/javascript'>
+    var clipboard = new Clipboard('code', {
+      target: function(trigger) {
+        return trigger;
+      }
+    });
+    clipboard.on('success', function(e) {
+      e.clearSelection();
+    });
+  </script>
+<% end %>

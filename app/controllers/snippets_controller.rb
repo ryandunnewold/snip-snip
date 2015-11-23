@@ -23,6 +23,7 @@ class SnippetsController < ApplicationController
   def update
     @snippet = Snippet.find(params[:id])
     @snippet.update(snippet_params)
+    respond_with @snippet
   end
 
   def destroy

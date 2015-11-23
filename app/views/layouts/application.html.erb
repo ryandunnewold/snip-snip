@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Snippets</title>
+  <link rel="stylesheet" media="screen" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -13,5 +14,6 @@
       <%= yield %>
     </div>
   </div>
+  <%= yield :scripts %>
 </body>
 </html>
