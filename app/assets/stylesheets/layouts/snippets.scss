@@ -4,9 +4,6 @@
   .snippet-title {
     box-sizing: border-box;
     padding: 8px 0;
-    @include flex;
-    @include flex-justify(space-between);
-    @include flex-align(center);
     a {
       color: $gray;
       text-decoration: none;

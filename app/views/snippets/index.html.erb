@@ -3,7 +3,12 @@
     <% @snippets.each do |snippet| %>
       <div class='snippet'>
         <div class='snippet-title'>
-          <%= link_to snippet.title, edit_snippet_path(snippet) %>
+          <%= link_to edit_snippet_path(snippet) do %>
+            <%= snippet.title != '' ? snippet.title : "Untitled" %>
+          <% end %>
+          <% unless snippet.public? %>
+            <span class='icon ion-eye-disabled'></span>
+          <% end %>
         </div>
         <div class='snippet-content'>
           <code>
