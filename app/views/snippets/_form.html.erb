@@ -2,6 +2,7 @@
   <%= f.input :title, label: false, placeholder: 'Title' %>
   <%= f.input :content, as: :contenteditable, label: false, input_html: {class: "shared-class"}, contenteditable_html: {class: "div-only-class"}, placeholder: 'Content', html_safe: true %>
   <%# f.input :language, as: :select, collection: Snippet.languages.keys.map{|l| [l.capitalize, l]} %>
+  <%= f.input :public %>
   <%= f.submit 'Save' %>
 <% end %>
 
