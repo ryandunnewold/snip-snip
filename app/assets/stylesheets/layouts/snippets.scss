@@ -23,12 +23,15 @@
       color: #fff;
       position: relative;
       cursor: pointer;
+      pre {
+        margin: 0;
+      }
     }
   }
 }
 
 form {
-  input[type='text'], textarea {
+  input[type='text'], textarea, div[contenteditable='true'] {
     width: 100%;
     padding: 8px;
     outline: none;
@@ -37,9 +40,25 @@ form {
     font-size: 1rem;
     font-family: 'Source Sans Pro'
   }
+  div[contenteditable='true'] {
+    min-height: 300px;
+    &:empty {
+      &:before {
+        color: #999;
+        content: attr(data-placeholder);
+      }
+      &:focus {
+        &:before {
+          content: ''   
+        }
+      }
+    }
+    pre {
+      margin: 0;
+    }
+  }
   textarea {
     resize: none; 
-    min-height: 300px;
   }
   input[type='submit'] {
     @include button($primary-color);

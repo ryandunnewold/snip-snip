@@ -1,0 +1,13 @@
+.alert {
+  display: block;
+  background: #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  padding: 8px 16px;
+  &.alert-alert {
+    color: red;
+  }
+  &.alert-notice {
+    color: green;
+  }
+}

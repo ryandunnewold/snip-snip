@@ -7,7 +7,7 @@
         </div>
         <div class='snippet-content'>
           <code>
-            <%= snippet.content %>
+            <%= snippet.content.html_safe %>
           </code>
         </div>
       </div>
@@ -22,8 +22,15 @@
         return trigger;
       }
     });
+
     clipboard.on('success', function(e) {
       e.clearSelection();
+    });
+
+    $(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
     });
   </script>
 <% end %>

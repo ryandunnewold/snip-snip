@@ -3,7 +3,7 @@
     <% @snippets.each do |snippet| %>
       <div class='snippet'>
         <div class='snippet-title'>
-          <%= link_to snippet.title, edit_snippet_path(snippet) %>
+          <%= snippet.title %>
         </div>
         <div class='snippet-content'>
           <code>

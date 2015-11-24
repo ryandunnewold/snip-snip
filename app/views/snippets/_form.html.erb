@@ -1,0 +1,48 @@
+<%= simple_form_for snippet, html: {onsubmit: 'getContent()'}  do |f| %>
+  <%= f.input :title, label: false, placeholder: 'Title' %>
+  <%= f.input :content, as: :contenteditable, label: false, input_html: {class: "shared-class"}, contenteditable_html: {class: "div-only-class"}, placeholder: 'Content', html_safe: true %>
+  <%# f.input :language, as: :select, collection: Snippet.languages.keys.map{|l| [l.capitalize, l]} %>
+  <%= f.submit 'Save' %>
+<% end %>
+
+<% content_for :scripts do %>
+  <script type="text/javascript">
+    $("form").submit(function() {
+      $(this).find("input[type=hidden].contenteditable").each(function() {
+        $input = $(this);
+        $input.val($input.siblings("div.contenteditable:first").html());
+      });
+    });
+
+    $(document).ready(function(){
+      $('[contenteditable]').on('paste',function(e) {
+        var text = (e.originalEvent || e).clipboardData.getData('text/html');
+        if (text == ''){
+          console.log('hit');
+          return true;
+        }
+        else {
+          e.preventDefault();
+          var $result = $('<div></div>').append($(text));
+
+          $(this).html($result.html());
+
+          // replace all styles except bold and italic
+          $.each($(this).find("*"), function(idx, val) {
+
+              var $item = $(val);
+              if ($item.length > 0){
+                  $item.removeAttr('style')
+                       .removeClass()
+              }
+          });
+
+          // remove unnecesary tags (if paste from word)
+          $(this).children('style').remove();
+          $(this).children('meta').remove()
+          $(this).children('link').remove();
+        }
+      });
+    });
+  </script>
+<% end %>
